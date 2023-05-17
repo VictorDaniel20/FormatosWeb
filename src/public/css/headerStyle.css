@@ -1,0 +1,60 @@
+*{
+    text-decoration: none;
+    list-style: none;
+    font-size: 10px;
+    margin: 0px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.head{
+    background-color:#00b3b3;
+    height: 3rem;
+    width: 100%;
+    box-shadow: #01010a 2px 2px 5px;
+    position: relative;
+}
+.container-fluid{
+    padding: 0px;
+}
+.navbar{
+    padding: 0;
+    height: 3rem;
+}
+.logoPrincipal{
+    width: 15rem;
+    height: 4rem;
+    margin: 0px 50px;
+    
+}
+.collapse{
+    margin-left: 5rem;
+}
+
+.nav-link, .dropdown-item{
+    color: white;
+    font-family: 'Prompt', sans-serif;
+
+}
+.navbar-custom .navbar-brand, .navbar-custom .navbar-text {
+    color: #015249;
+}
+
+.dropdown-menu{
+    background-color: #39d6a6;
+    padding: 0px;
+
+}
+.font-weight-bold{
+    text-align: center;
+}
+
+.dropdown-item {
+    text-align: center;
+    border-bottom: 1px solid gray;
+    padding: 10px;
+    display: block;
+    background-color: #77c9d4;
+}
+.footer{
+    background-color: #01010a;
+}

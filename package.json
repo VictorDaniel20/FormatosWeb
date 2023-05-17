@@ -4,7 +4,7 @@
   "description": "Pagina web en la que implemetaremos una base de datos para el autollenado de formatos que seran utilizados en la pagina de vianco.uaemex.mx",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
