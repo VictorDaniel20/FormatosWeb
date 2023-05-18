@@ -5,4 +5,5 @@ const router = express.Router();
 router.get('/Principal',(req,res)=>{
  res.render('Paginas/consulta')
 });
+
 module.exports = router;

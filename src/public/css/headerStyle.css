@@ -1,10 +1,9 @@
 *{
     text-decoration: none;
     list-style: none;
-    font-size: 10px;
+    font-size: 16px;
     margin: 0px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
 }
 .head{
     background-color:#00b3b3;
@@ -30,20 +29,18 @@
     margin-left: 5rem;
 }
 
-.nav-link, .dropdown-item{
-    color: white;
-    font-family: 'Prompt', sans-serif;
-
+.logoPrincipal{
+    width: 10rem;
+    height: 3rem;
+    margin: 0px 50px;
+    
 }
-.navbar-custom .navbar-brand, .navbar-custom .navbar-text {
-    color: #015249;
-}
-
 .dropdown-menu{
     background-color: #39d6a6;
     padding: 0px;
 
 }
+
 .font-weight-bold{
     text-align: center;
 }
@@ -53,8 +50,30 @@
     border-bottom: 1px solid gray;
     padding: 10px;
     display: block;
-    background-color: #77c9d4;
 }
 .footer{
     background-color: #01010a;
+}
+.navbar-custom .navbar-brand, .navbar-custom .navbar-text {
+    color: #01010a;
+    margin: 0px 20px;
+}
+
+.nav-link, .dropdown-item{
+    color: #01010a;
+    font-family: 'Merriweather Sans', sans-serif;
+    margin: 0px 3px;
+    font-size: 12px;
+
+}
+.nav-link:hover, .dropdown-item:hover{
+    background-color: #00cc99;
+    color: black;
+    font-weight: bold;
+}
+.nav-link:focus{
+    color:  #004d38;
+    font-size: 1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }

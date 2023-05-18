@@ -1,16 +1,23 @@
+  <link rel="stylesheet" href="/css/FormAstyle.css">
+      <title>Altas</title>
+</head>
+<body>
+    
+  {{> header}}
+
 <div class="container col-lg-8 col-sm-12">
-    <form class="row g-3 needs-validation" action="/guardar" method="post">
+    <form class="row g-3 needs-validation" action="/Modificaciones/Guardar" method="post">
       <h1 class="title"> Datos Personales <span class="badge bg-secondary"></span></h1>
       <div class="col-md-4">
       </div>
       <div class="col-md-4">
         <label for="validationCustom04" class="form-label">Tipo de Usuario</label>
-        <select class="form-select" id="validationCustom04" required>
+        <select class="form-select" id="tipoUsuario" name="usuario" required>
           <option selected disabled value="">Elige una opcion...</option>
-          <option value="M">Alumno</option>
-          <option value="F">Profesor</option>
-          <option value="F">Coordinador</option>
-          
+          <option value="Alumno">Alumno</option>
+          <option value="Profesor">Profesor</option>
+          <option value="Coordinador">Coordinador</option>
+          <option value="CoordProf">Coordinador y Profesor</option>
         </select>
         <div class="invalid-feedback">
           Please select a valid state.
@@ -110,10 +117,13 @@
         </div>
       </div>
       <div class="col-md-4">
-        <label for="validationCustom05" class="form-label">Municipio</label>
-        <input type="text" class="form-control" id="validationCustom05" name="municipio" required>
+        <label for="validationCustom04" class="form-label">Municipio</label>
+        <select class="form-select" id="Municipio" required name="Municipio">
+          <option selected disabled value="">Elige una opcion...</option>
+          <option value="1">Toluca</option>
+        </select>
         <div class="invalid-feedback">
-          Please provide a valid zip.
+          Please select a valid state.
         </div>
       </div>
       <div class="col-md-4">

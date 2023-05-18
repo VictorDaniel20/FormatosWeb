@@ -5,7 +5,7 @@
 *{
     text-decoration: none;
     list-style: none;
-    font-size: 10px;
+    font-size: 16px;
     margin: 0px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
@@ -13,6 +13,7 @@
 body{
     background-color: #d1e0e0;
 }
+
 .carrusell{
     margin: 0;
     background-image: url(https://image.freepik.com/foto-gratis/hermoso-fondo-azul-claro-vintage-decoracion-pintura-pared-telon-fondo_1962-1378.jpg);
@@ -23,12 +24,7 @@ body{
 .imgscr{
     margin: 0px;
 }
-.logoPrincipal{
-    width: 10rem;
-    height: 3rem;
-    margin: 0px 50px;
-    
-}
+
 .titulo{
     color: #ff9a02;
     text-align: center;
@@ -44,29 +40,6 @@ body{
     font-family: 'Abril Fatface', cursive;
     color: #99740a;
     font-size: 30px;
-}
-.navbar-custom .navbar-brand, .navbar-custom .navbar-text {
-    color: #01010a;
-    margin: 0px 20px;
-}
-
-.nav-link, .dropdown-item{
-    color: #01010a;
-    font-family: 'Merriweather Sans', sans-serif;
-    margin: 0px 3px;
-    font-size: 12px;
-
-}
-.nav-link:hover, .dropdown-item:hover{
-    background-color: #00cc99;
-    color: black;
-    font-weight: bold;
-}
-.nav-link:focus{
-    color:  #004d38;
-    font-size: 1rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
 }
 .container{
     margin: 0 auto;
@@ -99,16 +72,12 @@ body{
 .ImagenLogo ,.dropdown-item {
 text-align: center;
 }
+
 .footer{
     background-color: #01010a;
     margin: 0;
 }
-.dropdown-menu{
-    background-color: aliceblue;
-    border-radius: 5px;
-    border: 2px solid #77c9d4;
 
-}
 .ec1{
     background-color: #99740a;
 }
@@ -119,8 +88,4 @@ text-align: center;
 }
 .carousel-inner{
     height: 500px;
-}
-.redes{
-    padding: 0px;
-    margin: 0;
 }

@@ -37,6 +37,7 @@ app.use('/Principal',require('./routes/Principal'));
 app.use('/Modificaciones/Personas',require('./routes/Principal'));
 app.use('/Formatos/3evaluacion',require('./routes/Principal'));
 app.use('AcercaDe',require('./routes/Principal'));
+app.use('/Modificaciones',require('./routes/Documentos'));
 // public
 app.use(express.static(path.join(__dirname,'public')));
 
