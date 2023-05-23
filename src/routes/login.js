@@ -2,8 +2,8 @@ const express = require('express');
 const { render } = require('timeago.js');
 const router = express.Router();
 
-router.get('/Principal',(req,res)=>{
- res.render('Paginas/consulta')
+router.get('/',(req,res)=>{
+ res.render('Paginas/login')
 });
 
 module.exports = router;

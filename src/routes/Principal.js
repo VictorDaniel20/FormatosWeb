@@ -1,16 +1,22 @@
 const express = require('express');
 const { render } = require('timeago.js');
 const router = express.Router();
+const pool = require('../database');
 
-router.get('/Principal',(req,res)=>{
-    res.render('Paginas/Principal')
+router.post('/Principal',(req,res)=>{
+    const datos = {Correo,contraseña}=req.body;
+    console.log(datos)
+
+    res.render('Paginas/Principal',{datos})
    });
 
 router.get('/Modificaciones/Personas',(req,res)=>{
     res.render('Paginas/Altas/Personas')
 });
-router.get('/Formatos/3evaluacion',(req,res)=>{
-    res.render('Paginas/Docs/3evaluacion')
+router.get('/Formatos/3evaluacion',async (req,res)=>{
+    const userData = await pool.query('select nombres , primerApellido ,segundoApellido  from persona where id_persona =?',87);
+    const datos = userData[0];
+    res.render('Paginas/Docs/3evaluacion',{datos});
 });
 
 router.get('/AcercaDe',(req,res)=>{

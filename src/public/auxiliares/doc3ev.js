@@ -78,34 +78,38 @@
 	const year = today.getFullYear();
 
 
+  var imageUrl1 = 'logofac.png';
+  var imageUrl2 = 'UAEM.png';
 
+  // Obtener las imágenes en formato base64
+  var promesaImagen1 = obtenerImagenBase64(imageUrl1);
+  var promesaImagen2 = obtenerImagenBase64(imageUrl2);
+
+  Promise.all([promesaImagen1, promesaImagen2])
+        .then(function (resultados) {
+          var base64data1 = resultados[0];
+          var base64data2 = resultados[1];
+        
 
 	//Agregar Encabezado
 	var header = {
         columns: [
           {
-            //base64data,
-           // img,
-           //image: 'Documentos/PruebaPDF/UAEM.png', // Primera imagen
-              
-           //https://drive.google.com/file/d/1lHwXZQ0_u-RFWMaU-Ylclywf_JuhDCmT/view?usp=sharing
-           //https://drive.google.com/file/d/1AfsTXPim_sPQ1rJewx8aNsb9FwzAXAkC/view?usp=share_link
-             //https://drive.google.com/file/d/1AfsTXPim_sPQ1rJewx8aNsb9FwzAXAkC/view?usp=sharing
-             //https://drive.google.com/file/d/1lHwXZQ0_u-RFWMaU-Ylclywf_JuhDCmT/view?usp=sharing
-           // width: 50,
-            //margin: [10, 10, 0, 10]
+          image:base64data2,
+            width: 50,
+            margin: [0, 10, 0, 0]
+            
           },
 		  // Texto dividido en dos renglones
           {text: ['DOCTORADO EN CIENCIAS DE LA INGENIERÍA\n','FACULTAD DE INGENIERÍA'], 
-		  alignment: 'center',fontSize:9,margin: [0, 10, 0, 10]},
-		  //{text: 'FACULTAD DE INGENIERÍA', alignment: 'center',},
+		  alignment: 'center',fontSize:9,margin: [0, 10, 0, 10]}, //0,10,0,10
           {
-           // image: 'https://dummyimage.com/100x100/000/fff&text=Logo+2', // Segunda imagen
-           // width: 50,
-           // margin: [0, 10, 10, 10]
+         image:base64data1,
+         width: 55,
+         margin: [0, 10, 0, 0]
           }
         ],
-        margin: [0, 15, 0, 5]
+        margin: [70, 15, 90, 15]
       };
 
 
@@ -114,10 +118,9 @@
     var docDefinition = {
 		
   pageSize: 'LETTER',
-  pageMargins: [70, 50, 70, 30], // márgenes en pulgadas
+  pageMargins: [70, 50, 70, 30], // margen
   header: header,
   content: [
-  
     // Título
     { text: 'FACULTAD DE INGENIERÍA', style: 'title',alignment: 'center',
 	fontSize:12, 
@@ -135,6 +138,8 @@
         }
       ]
     },
+
+    
 
 	//Nombre del Evaluador
 	{
@@ -370,3 +375,32 @@
 // Crear PDF
 pdfMake.createPdf(docDefinition).open();
 }
+    )}
+  
+
+
+ function obtenerImagenBase64(url) {
+      return new Promise(function (resolve, reject) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.responseType = 'blob';
+
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            var reader = new FileReader();
+            reader.onloadend = function () {
+              resolve(reader.result);
+            };
+            reader.readAsDataURL(xhr.response);
+          } else {
+            reject(new Error('Error al obtener la imagen'));
+          }
+        };
+
+        xhr.onerror = function () {
+          reject(new Error('Error al obtener la imagen'));
+        };
+
+        xhr.send();
+      });
+    }
