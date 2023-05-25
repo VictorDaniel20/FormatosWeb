@@ -1,31 +1,29 @@
- <link rel="stylesheet" href="/css/CambioContra.css">
+<link rel="stylesheet" href="/css/CambioContra.css">
 </head>
- {{> header}}
+
 <body>
-    <form class="row cambio col-xl-6">
+    {{> header}}
+    <form action="/Usuario/ModificarUsuario" method="post" class="row cambio col-xl-6">
         <h2>Usuario y Contraseña</h2>
-        <div class="col-md-12">
-            <label for="validationServerUsername" class="form-label">Email</label>
-            <div class="input-group has-validation">
-                <input type="" class="form-control " id="validationServerUsername"
-                    aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
-                <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                    ingresa un correo
-                </div>
+        <div class=" cont col-md-11 col-lg-11 col-sm-11 col-xl-11">
+            <label for="validationServer01" class="form-label">Contraseña Actual</label>
+            <input type="password" class="form-control " id="ContraseñaActual"  required>
+            <div class="" id="text">
             </div>
         </div>
+        <img src="/imagines/ojo.png" alt="" class="see  col-md-1" name="wf" onclick="mostrar()">
+
         <div class=" cont col-md-11 col-lg-11 col-sm-11 col-xl-11">
             <label for="validationServer01" class="form-label">Contraseña</label>
-            <input type="password" class="form-control " id="Contraseña" value="Mark" required>
-        <div class="" id="text1">
-          </div>
-           </div>
-           <img src="/imagines/ojo.png" alt="" class="see  col-md-1" name="wf" onclick="mostrar1()">
-           
+            <input type="password" class="form-control " id="Contraseña"  required>
+            <div class="" id="text1">
+            </div>
+        </div>
+        <img src="/imagines/ojo.png" alt="" class="see  col-md-1" name="wf" onclick="mostrar1()">
+
         <div class=" cont col-md-11 col-lg-11 col-sm-11 col-xl-11">
             <label for="validationServer02" class="form-label">Confirmar Contrseña</label>
-            <input type="password" class="form-control" id="ConfirmarC" value="Otto" required>
+            <input type="password" class="form-control" id="ConfirmarC"  required>
             <div class="" id="text2"></div>
         </div>
         <img src="/imagines/ojo.png" alt="" class="see  col-md-1" name="wf" onclick="mostrar2()">
@@ -34,47 +32,56 @@
     <script>
         var contra = document.getElementById('Contraseña');
         var contraseñaC = document.getElementById('ConfirmarC');
+         var contraseñaActual = document.getElementById('ContraseñaActual');
         var boton = document.getElementById('btn');
         contraseñaC.addEventListener('change', validar);
 
-        function mostrar1(){
+        function mostrar() {
+            if (contraseñaActual.type == 'password') {
+                contraseñaActual.type = 'text'
+            } else {
+                contraseñaActual.type = 'password';
+            }
+        }
+
+        function mostrar1() {
             contraseñaC.type = 'password'
-            if(contra.type =='password'){
+            if (contra.type == 'password') {
                 contra.type = 'text'
-            }else{
+            } else {
                 contra.type = 'password';
             }
         }
 
-        function mostrar2(){
+        function mostrar2() {
             contra.type = 'password'
-            if(contraseñaC.type =='password'){
+            if (contraseñaC.type == 'password') {
                 contraseñaC.type = 'text'
-            }else{
+            } else {
                 contraseñaC.type = 'password';
             }
         }
-        
+
 
         function validar() {
             var inputText1 = document.getElementById('text1');
             var inputText2 = document.getElementById('text2');
-        
+
             if (contra.value == contraseñaC.value) {
-                if(contra.classList.contains('is-invalid')){
+                if (contra.classList.contains('is-invalid')) {
                     contraseñaC.classList.remove('is-invalid')
                     contra.classList.remove('is-invalid')
                     inputText1.classList.remove('invalid-feedback');
-                inputText2.classList.remove('invalid-feedback')
+                    inputText2.classList.remove('invalid-feedback')
                 }
                 contra.classList.toggle('is-valid');
                 contraseñaC.classList.toggle('is-valid');
                 inputText1.classList.add('valid-feedback');
                 inputText2.classList.add('valid-feedback')
                 inputText2.innerText = 'Contraseñas validadas';
-          
-            }else{
-                if(contra.classList.contains('is-valid')){
+
+            } else {
+                if (contra.classList.contains('is-valid')) {
                     contraseñaC.classList.remove('is-valid')
                     contra.classList.remove('is-valid')
                     contra.classList.remove('is-valid');

@@ -3,6 +3,10 @@ const router = express.Router();
 
 const pool = require('../database');
 
+router.get('/Guardar', async (req,res)=>{
+    req.flash('success','Guardado satisfactoriamente');
+    res.render('Paginas/Altas/DatosP');
+})
 
 router.post('/Guardar', async (req,res)=>{
     console.log(req.body);
@@ -13,16 +17,7 @@ router.post('/Guardar', async (req,res)=>{
         id_persona,nombre,pApellido,sApellido,fechaNac,genero,pais,estado,Municipio,colonia,calle,noExterior,noInterior,cp,edoCivil,email,tel,telcel,curp,nacionalidad,firma,rfc};
         console.log(email);
         await pool.query(' INSERT INTO persona VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',[,nombre,pApellido,sApellido,fechaNac,genero,pais,estado,Municipio,colonia,calle,noExterior,noInterior,cp,edoCivil,email,tel,telcel,curp,nacionalidad,firma,rfc]);
-
-        if(usuario === 'Alumno'){
-            res.send('Eres Alumno');
-        }
-        if(usuario === 'Coordinador'){
-            res.send('Eres Coordinador');
-        }
-        if(usuario === 'Profesor'){
-            res.send('Eres Profesor');
-        }
+        res.redirect('/Modificaciones/Guardar');
 });
 
 

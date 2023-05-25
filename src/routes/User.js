@@ -7,4 +7,7 @@ router.get('/Ajustes',(req,res)=>{
 router.get('/ModificarUsuario',(req,res)=>{
     res.render('Paginas/cambioContra');
 });
+router.post('/ModificarUsuario',(req,res)=>{
+    res.render('Paginas/cambioContra');
+});
 module.exports = router;

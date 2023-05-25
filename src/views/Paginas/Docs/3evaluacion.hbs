@@ -2,9 +2,7 @@
     <title>3° Evaluacion</title>
 </head>
 <body>
-    
-  {{> header}}
-
+    {{> header}}
 <div class="container col-lg-12 col-xl-12 col-md-12 col-sm-12 ">
         <div class="row">
             <div class="col-lg-1 col-xl-1 col-md-1 col-sm-1"></div>
@@ -38,7 +36,7 @@
                 {{nombres}}
                     <div class="col-md-10 col-sm-10">
                         <label for="validationDefault01" class="form-label">Nombre del evaluador </label>
-                        <input type="text" name="NombreEvaluador" id="NombreEvaluador" class="form-control" id="validationDefault01" value="{{datos.nombres }} {{datos.primerApellido}} {{datos.segundoApellido}}" required>
+                        <input type="text" name="NombreEvaluador" id="NombreEvaluador" class="form-control" id="validationDefault01" value="{{user.nombres}} {{user.primerApellido}}{{user.segundoApellido}}" required>
                     </div>
                     <div class="col-md-11 col-sm-11">
                         <label for="validationDefault02" class="form-label">ASIGNACIÓN DENTRO DEL <b> COMITÉ TUTORAL:

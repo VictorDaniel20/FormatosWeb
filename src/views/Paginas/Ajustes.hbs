@@ -1,8 +1,10 @@
-<link rel="stylesheet" href="/css/Ajustes.css">
-    <title>Ajustes</title>
-</head>
+    <link rel="stylesheet" href="/css/Ajustes.css">
+       <title>Ajustes</title>
+    </head>
 <body>
-     {{> header}}
+    {{> header}}
+
+
     <div class="container col-lg-7">
         <div class="col-sm-12">
             <h1 class="title">DATOS DE USUARIO</h1>
@@ -14,14 +16,13 @@
                         alt="">
                 </div>
                 <div class="col-sm-8 contenido">
-                    <label for="" class="element">Nombre(s) : Victor daniel archundia sanchez</label> <br>
-                    <label for="" class="element">Apellido Paterno : daniel</label> <br>
-                    <label for="" class="element">Apellido Materno : daniel</label> <br>
-                    <label for="" class="element">Correo : daniel</label> <br>
-                    <label for="" class="element">Fecha Nacimiento : daniel</label> <br>
-                    <label for="" class="element">Tipo Usuario : daniel</label>
+                    <label for="" class="element">Nombre(s) : {{user.nombres}}</label> <br>
+                    <label for="" class="element">Apellido Paterno : {{user.primerApellido}}</label> <br>
+                    <label for="" class="element">Apellido Materno : {{user.segundoApellido}}</label> <br>
+                    <label for="" class="element">Correo : {{user.username}}</label> <br>
+                    <label for="" class="element">Fecha Nacimiento : {{user.fechaNac}}</label> <br>
                 </div>
             </div>
-            <a href="/Usuario/ModificarUsuario" class="linkA">editar usuario</a>
+            <a href="/Usuario/ModificarUsuario" class="linkA">editar contraseña</a>
         </div>
     </div>
