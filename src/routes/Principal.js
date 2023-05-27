@@ -17,11 +17,23 @@ router.get('/Modificaciones/Personas', (req, res) => {
     res.render('Paginas/Altas/Personas')
 });
 router.get('/Formatos/3evaluacion', async (req, res) => {
-    const userData = await pool.query('select nombres , primerApellido ,segundoApellido  from persona where id_persona =?', 87);
-    const datos = userData[0];
-    res.render('Paginas/Docs/3evaluacion', { datos });
+    res.render('Paginas/Docs/3Evaluacion');
 });
-
+router.get('/Formatos/1Evaluacion', async (req, res) => {
+    res.render('Paginas/Docs/1Evaluacion');
+});
+router.get('/Formatos/2Evaluacion', async (req, res) => {
+    res.render('Paginas/Docs/2Evaluacion');
+});
+router.get('/Formatos/4Evaluacion', async (req, res) => {
+    res.render('Paginas/Docs/4Evaluacion');
+});
+router.get('/Formatos/5Evaluacion', async (req, res) => {
+    res.render('Paginas/Docs/5Evaluacion');
+});
+router.get('/Formatos/6Evaluacion', async (req, res) => {
+    res.render('Paginas/Docs/6Evaluacion');
+});
 router.get('/AcercaDe', (req, res) => {
     res.render('Paginas/AcercaDe')
 });

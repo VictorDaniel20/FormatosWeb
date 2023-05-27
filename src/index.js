@@ -42,9 +42,10 @@ app.use(passport.session());
 //variables globales
 app.use((req,res,next) =>{
     app.locals.success =  req.flash('success');
+    app.locals.success =  req.flash('subir');
     app.locals.user = req.user;
+    
 next();
-
 });
 
 //rutas
@@ -54,6 +55,10 @@ app.use('/aut',require('./routes/autenticacion'));
 app.use('/Principal',require('./routes/Principal'));
 app.use('/Modificaciones/Personas',require('./routes/Principal'));
 app.use('/Formatos/3evaluacion',require('./routes/Principal'));
+app.use('/Formatos/1evaluacion',require('./routes/Principal'));
+app.use('/Formatos/4evaluacion',require('./routes/Principal'));
+app.use('/Formatos/5evaluacion',require('./routes/Principal'));
+app.use('/Formatos/6evaluacion',require('./routes/Principal'));
 app.use('AcercaDe',require('./routes/Principal'));
 app.use('/Modificaciones',require('./routes/Altas')); 
 app.use('/Usuario',require('./routes/User'));

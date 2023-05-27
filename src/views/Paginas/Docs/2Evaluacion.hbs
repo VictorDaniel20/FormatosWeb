@@ -1,182 +1,221 @@
-<link rel="stylesheet" href="/css/Doc3evStyle.css">
-<title>3° Evaluacion</title>
+ <link rel="stylesheet" href="/css/Doc3evStyle.css">
+<title>2° Evaluacion</title>
 </head>
 
 <body>
   {{> header}}
-  <div class="container col-lg-12 col-xl-12 col-md-12 col-sm-12 ">
-    <div class="row">
-      <div class="col-lg-1 col-xl-1 col-md-1 col-sm-1"></div>
-      <div class="contenedor col-lg-10 col-xl-10 col-md-10 col-sm-12">
+ <div class="container col-lg-12 col-xl-12 col-md-12 col-sm-12 ">
         <div class="row">
-          <span class="col-lg-2 col-sm-2">
-            <img class="logo"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Logo_de_la_UAEMex.svg/800px-Logo_de_la_UAEMex.svg.png"
-              alt="">
-          </span>
-          <span class="col-lg-8 col-sm-8">
-            <h1 class="center">
-              DOCTORADO EN CIENCIAS DE LA INGENIERIA <br>
-              FACULTAD DE INGENIERIA
-            </h1>
-          </span>
-          <span class="col-lg-2 col-sm-2">
-            <img class="logo"
-              src="https://th.bing.com/th/id/R.09aa38a01276130c39598d6025fabaab?rik=7mvbDZ35lh9HGw&pid=ImgRaw&r=0"
-              alt="">
-          </span>
+            <div class="col-lg-1 col-xl-1 col-md-1 col-sm-1"></div>
+            <div class="contenedor col-lg-10 col-xl-10 col-md-10 col-sm-12">
+                <div class="row">
+                    <span class="col-lg-2 col-sm-2">
+                        <img class="logo"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Logo_de_la_UAEMex.svg/800px-Logo_de_la_UAEMex.svg.png"
+                            alt="">
+                    </span>
+                    <span class="col-lg-8 col-sm-8">
+                        <h1 class="center">
+                            DOCTORADO EN CIENCIAS DE LA INGENIERIA <br>
+                            FACULTAD DE INGENIERIA
+                        </h1>
+                    </span>
+                    <span class="col-lg-2 col-sm-2">
+                        <img class="logo"
+                            src="https://th.bing.com/th/id/R.09aa38a01276130c39598d6025fabaab?rik=7mvbDZ35lh9HGw&pid=ImgRaw&r=0"
+                            alt="">
+                    </span>
 
+                </div>
+
+                <p class="center">
+                    Formato de evaluación <br>
+                    <b>Actividades de investigación: </b>
+                    2do. Semestre
+                </p>
+                {{links}}
+                {{nombres}}
+                <div class="col-md-10 col-sm-10">
+                    <label for="validationDefault01" class="form-label">Nombre del evaluador </label>
+                    <input type="text" name="NombreEvaluador" id="NombreEvaluador" class="form-control"
+                        id="validationDefault01"
+                        value="{{user.nombres}} {{user.primerApellido}}{{user.segundoApellido}}" required>
+                </div>
+                <div class="col-md-11 col-sm-11">
+                    <label for="validationDefault02" class="form-label">ASIGNACIÓN DENTRO DEL <b> COMITÉ TUTORAL:
+                        </b>
+                        DIRECTOR DE TESIS (<input type="text" name="dt" id="dt" class="yn">) CODIRECTOR DE TESIS (<input
+                            type="text" class="yn" name="ct">) TUTORES (<input name="tuto" type="text" class="yn">)
+                    </label>
+                </div>
+                <div class="col-md-10 col-sm-10">
+                    <label for="validationDefault04" class="form-label">Nombre del alumno</label>
+                    <select class="form-select" id="nombreAlumno" required>
+                        <option selected disabled value="">selecciona una opcion...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <div class="col-md-10">
+                    <label for="validationDefault04" class="form-label">Titulo del proyecto</label>
+                    <select class="form-select" id="proyecto" required>
+                        <option selected disabled value="">Selecciona una opcion...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+
+                <p> <b> I. Trabajo Escrito (70%). </b> Se califica forma, fondo e integración de los primeros
+                    capítulos y su
+                    capítulo de avance, del trabajo escrito de tesis.</p>
+                <div class="row">
+                    <div class="col-lg-1 col-xl-1 col-md-1 col-sm-1"></div>
+                    <div class="col-lg-10 col-xl-10 col-md-10 col-sm-10">
+                        <table class="table table-bordered border-3 border-dark ">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="center"><b>Puntos a Evaluar</b></th>
+                                    <th scope="col" class="center">Calificacion (1-10)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td scope="row">Introducción (parte del protocolo) capítulo I</td>
+                                    <td><input type="number" id="cal1" class="cal"></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">Estado del Arte – capítulo II</td>
+                                    <td><input type="number" id="cal2" class="cal"></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">Marco Teórico – capítulo III</td>
+                                    <td colspan="2"><input type="number" id="cal3" class="cal"></td>
+                                </tr>
+
+                                <tr>
+                                    <td scope="row">Tabla comparativa entre el Plan de Trabajo semestral y las
+                                        actividades
+                                        realizadas (Reporte de Trabajo semestral)</td>
+                                    <td colspan="2"><input type="number" id="cal4" class="cal"></td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <div class="col-lg-1 col-xl-1 col-md-1 col-sm-1"></div>
+                </div>
+                <p> <b> II. Presentación Oral (30%).</b> Se califica la presentación y el dominio de lo presentado.
+                    <!-- tabla dos -->
+                <div class="row">
+                    <div class="col-lg-1 col-xl-1 col-md-1 col-sm-1"></div>
+                    <div class="col-lg-10 col-xl-10 col-md-10 col-sm-10">
+                        <table class="table table-bordered border-3 border-dark">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="center"><b>Puntos a Evaluar</b></th>
+                                    <th scope="col" class="center">Calificacion (1-10)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td scope="row">Introducción </td>
+                                    <td><input type="number" class="cal" id="cal5"></td>
+                                </tr>
+
+                                <tr>
+                                    <td scope="row">Estado del Arte</td>
+                                    <td colspan="2"><input type="number" class="cal" id="cal6"></td>
+                                </tr>
+
+                                <tr>
+                                    <td scope="row">Marco teórico</td>
+                                    <td colspan="2"><input type="number" class="cal" id="cal7"></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">Avances: propuestas y resultados
+                                    </td>
+                                    <td><input type="number" class="cal" id="cal8"></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">Comparativo entre cronograma inicial
+
+                                        y actividades realizadas
+
+                                    </td>
+                                    <td><input type="number" class="cal" id="cal9"></td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <div class="col-lg-1 col-xl-1 col-md-1 col-sm-1"></div>
+                </div>
+                <p>El alumno deberá tener un avance entre el 25% y el 35% de su investigación.</p>
+
+                <p><b>CALIFICACION ASIGNADA (ESCALA DE 0 A 10):</b> <input type="number" id="calFinal" class="calFinal" > </p>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                        style="height: 100px"></textarea>
+                    <label for="floatingTextarea2">Comentarios y observaciones</label>
+                </div>
+                <div class="div-btn col-12">
+                    <button class="btn btn-primary" onclick="generarPDF()">Imprimir</button>
+                </div>
+
+            </div>
         </div>
-
-        <p class="center">
-          Formato de evaluación <br>
-          <b>Actividades de investigación: </b>
-          3er. Semestre
-        </p>
-        {{links}}
-        {{nombres}}
-        <div class="col-md-10 col-sm-10">
-          <label for="validationDefault01" class="form-label">Nombre del evaluador </label>
-          <input type="text" name="NombreEvaluador" id="NombreEvaluador" class="form-control" id="validationDefault01"
-            value="{{user.nombres}} {{user.primerApellido}}{{user.segundoApellido}}" required>
-        </div>
-        <div class="col-md-11 col-sm-11">
-          <label for="validationDefault02" class="form-label">ASIGNACIÓN DENTRO DEL <b> COMITÉ TUTORAL:
-            </b>
-            DIRECTOR DE TESIS (<input type="text" name="dt" id="dt" class="yn">) CODIRECTOR DE TESIS (<input type="text"
-              class="yn" name="ct">) TUTORES (<input name="tuto" type="text" class="yn">) </label>
-        </div>
-        <div class="col-md-10 col-sm-10">
-          <label for="validationDefault04" class="form-label">Nombre del alumno</label>
-          <select class="form-select" id="nombreAlumno" required>
-            <option selected disabled value="">selecciona una opcion...</option>
-            <option>...</option>
-          </select>
-        </div>
-        <div class="col-md-10">
-          <label for="validationDefault04" class="form-label">Titulo del proyecto</label>
-          <select class="form-select" id="proyecto" required>
-            <option selected disabled value="">Selecciona una opcion...</option>
-            <option>...</option>
-          </select>
-        </div>
-
-        <p> <b> I. Trabajo Escrito (70%). </b> Se califica forma, fondo e integración de los primeros
-          capítulos y su
-          capítulo de avance, del trabajo escrito de tesis.</p>
-        <div class="row">
-          <div class="col-lg-1 col-xl-1 col-md-1 col-sm-1"></div>
-          <div class="col-lg-10 col-xl-10 col-md-10 col-sm-10">
-            <table class="table table-bordered border-3 border-dark ">
-              <thead>
-                <tr>
-                  <th scope="col" class="center"><b>Puntos a Evaluar</b></th>
-                  <th scope="col" class="center">Calificacion (1-10)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td scope="row">Introducción (parte del protocolo) capítulo I</td>
-                  <td><input type="number" id="cal1" class="cal"></td>
-                </tr>
-                <tr>
-                  <td scope="row">Estado del Arte – capítulo II</td>
-                  <td><input type="number" id="cal2" class="cal"></td>
-                </tr>
-                <tr>
-                  <td scope="row">Marco Teórico – capítulo III</td>
-                  <td colspan="2"><input type="number" id="cal3" class="cal"></td>
-                </tr>
-
-                <tr>
-                  <td scope="row">Tabla comparativa entre el Plan de Trabajo semestral y las
-                    actividades
-                    realizadas (Reporte de Trabajo semestral)</td>
-                  <td colspan="2"><input type="number" id="cal4" class="cal"></td>
-                </tr>
-              </tbody>
-
-            </table>
-          </div>
-          <div class="col-lg-1 col-xl-1 col-md-1 col-sm-1"></div>
-        </div>
-        <p> <b> II. Presentación Oral (30%).</b> Se califica la presentación y el dominio de lo presentado
-          (Ver
-          rúbrica de evaluación presentación oral).</p>
-        <!-- tabla dos -->
-        <div class="row">
-          <div class="col-lg-1 col-xl-1 col-md-1 col-sm-1"></div>
-          <div class="col-lg-10 col-xl-10 col-md-10 col-sm-10">
-            <table class="table table-bordered border-3 border-dark">
-              <thead>
-                <tr>
-                  <th scope="col" class="center"><b>Puntos a Evaluar</b></th>
-                  <th scope="col" class="center">Calificacion (1-10)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td scope="row">Introducción </td>
-                  <td><input type="number" class="cal" id="cal5"></td>
-                </tr>
-
-                <tr>
-                  <td scope="row">Marco Teórico</td>
-                  <td colspan="2"><input type="number" class="cal" id="cal6"></td>
-                </tr>
-
-                <tr>
-                  <td scope="row">Avances: propuestas</td>
-                  <td colspan="2"><input type="number" class="cal" id="cal7"></td>
-                </tr>
-                <tr>
-                  <td scope="row">Resultados inmediatos
-                  </td>
-                  <td><input type="number" class="cal" id="cal8"></td>
-                </tr>
-                <tr>
-                  <td scope="row">Comparativo entre el Plan de Trabajo semestral y las actividades
-                    realizadas
-                    (Reporte de Trabajo semestral)
-
-                  </td>
-                  <td><input type="number" class="cal" id="cal9"></td>
-                </tr>
-                <tr>
-                  <td scope="row">Comparativo entre cronograma inicial y actividades realizadas
-                  </td>
-                  <td><input type="number" class="cal" id="cal10"></td>
-                </tr>
-
-              </tbody>
-
-            </table>
-          </div>
-          <div class="col-lg-1 col-xl-1 col-md-1 col-sm-1"></div>
-        </div>
-        <p>El alumno deberá tener un avance entre el 45% y el 55% de su investigación, que corresponde a los
-          4
-          primeros capítulos de su tesis.</p>
-
-        <p><b>CALIFICACION ASIGNADA (ESCALA DE 0 A 10):</b> <input type="number" class="cal"> </p>
-        <div class="form-floating">
-          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-            style="height: 100px"></textarea>
-          <label for="floatingTextarea2">Comentarios</label>
-        </div>
-        <div class="div-btn col-12">
-          <button class="btn btn-primary" onclick="generarPDF()">Guardar</button>
-        </div>
-
-      </div>
-      <div class="col-lg-1 col-xl-1 col-md-1 col-sm-1">
-      </div>
     </div>
-  </div>
-
   <script>
+    const calf = document.getElementById('cal9');
+    calf.addEventListener('change',calcular);
+    function calcular(){
+                  const myInput5 = document.getElementById("cal1");
+      const calf1 = myInput5.value;
+      console.log(calf1)
+      const myInput6 = document.getElementById("cal2");
+      const calf2 = myInput6.value;
+      console.log(calf2)
+      const myInput7 = document.getElementById("cal3");
+      const calf3 = myInput7.value;
+      console.log(calf3)
+      const myInput8 = document.getElementById("cal4");
+      const calf4 = myInput8.value;
+      console.log(calf4)
+      const myInput9 = document.getElementById("cal5");
+      const calf5 = myInput9.value;
+      console.log(calf5)
+      const myInput10 = document.getElementById("cal6");
+      const calf6 = myInput10.value;
+      console.log(calf6)
+      const myInput11 = document.getElementById("cal7");
+      const calf7 = myInput11.value;
+      console.log(calf7)
+      const myInput12 = document.getElementById("cal8");
+      const calf8 = myInput12.value;
+      console.log(calf8)
+      const myInput13 = document.getElementById("cal9");
+       const calF = document.getElementById("calFinal");
+      const calf9 = myInput13.value;
+      console.log(calf9)
+      var num1 = parseFloat(calf1);
+      var num2 = parseFloat(calf2);
+      var num3 = parseFloat(calf3);
+      var num4 = parseFloat(calf4);
+
+      var num5 = parseFloat(calf5);
+      var num6 = parseFloat(calf6);
+      var num7 = parseFloat(calf7);
+      var num8 = parseFloat(calf8);
+      var num9 = parseFloat(calf9);
+
+      const summa = num1 + num2 + num3 + num4;
+      const total1 = (summa * 7) / 40;
+
+      const summa2 = num5 + num6 + num7 + num8 + num9;
+      const total2 = (summa2 * 3) / 50;
+
+      const calfinal = (total1 + total2).toFixed(1);
+        calF.value = calfinal;
+    }
     function generarPDF() {
-      console.log("2si entra a logf")
       const myInput = document.getElementById("NombreEvaluador");
       const nombre = myInput.value;
       console.log(nombre);
@@ -240,7 +279,7 @@
       //console.log(summa);
       //console.log(summa2);
 
-      const myInput14 = document.getElementById("cal10");
+      const myInput14 = document.getElementById("floatingTextarea2");
       const observaciones = myInput14.value;
       console.log(observaciones)
 
@@ -563,6 +602,7 @@
 
           // Crear PDF
           pdfMake.createPdf(docDefinition).open();
+          alert("El documento ha sido generado con exito");
         }
         )
     };

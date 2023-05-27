@@ -27,3 +27,7 @@
     opacity: .9;
     cursor: pointer;
 }
+
+.container1{
+    background-color: rgb(red, 255, 255,.5);
+}

@@ -10,17 +10,29 @@ const passport = require('passport');
 //     failureFlash: true
 // }));
 
-router.post('/',(req,res,next) =>{
-passport.authenticate('local.signin',{
+// router.post('/',(req,res,next) =>{
+// passport.authenticate('local.signin',{
+//     successRedirect: '/Principal',
+//     failureRedirect: '/login/',
+//     failureFlash: true,
+// })(req,res,next)
+// });
+const valid = true;
 
-    successRedirect: '/Principal',
-    failureRedirect: '/login/',
-    failureFlash: true
-})(req,res,next)
-});
+router.post('/',(req,res,next) =>{
+  passport.authenticate('local.signin',{
+      successRedirect: '/Principal',
+      failureRedirect: ('/login/err'),
+      failureFlash: true,
+  })(req,res,next)
+  });
 
 router.get('/', (req, res) => {
+
     res.render('Paginas/login');
 });
 
+router.get('/err', (req, res) => {    
+    res.render('Paginas/login',{valid});
+});
 module.exports = router;

@@ -10,54 +10,62 @@ passport.use('local.signin', new local({
     passReqToCallback:true
 },async (req,username,password,done) => {
     const rows = await pool.query('select * from investigador where email_institu = ?',username);
-    const usP = await pool.query('select * from usuario where id_investigador = ? ',rows[0].id_investigador);
-    const persona = await pool.query('select * from persona where id_persona  = ?',rows[0].id_persona);
-    const {id_persona, nombres,primerApellido,segundoApellido,fechaNac,genero } = persona[0];
-    const usuarioData ={
-        id_persona,
-        nombres,
-        primerApellido,
-        segundoApellido,
-        fechaNac,
-        genero,
-        username,
+    const valid =  {
+        falso: "false"
     }
-
     if(rows.length > 0){
+        const usP = await pool.query('select * from usuario where id_investigador = ? ',rows[0].id_investigador);
+        const persona = await pool.query('select * from persona where id_persona  = ?',rows[0].id_persona);
+        const {id_persona, nombres,primerApellido,segundoApellido,fechaNac,genero } = persona[0];
+        const usuarioData ={
+            id_persona,
+            nombres,
+            primerApellido,
+            segundoApellido,
+            fechaNac,
+            genero,
+            username,
+        }
+  
+    
         const user = usuarioData;
         console.log(user);
         if(password === usP[0].contrasenia){
-            console.log('si son iguales')
-            done(null,user,req.flash('success','mensaje'));    
+            const valid =  {
+                verdad: "cierto"
+            }
+            done(null,user,{valid});    
         }else{
-            done(null,false,req.flash('success','contraseña incorrecta'));
+            done(null,false,{valid});
         }
     }
     else{
-        done(null,false,req.flash('success','no se puede iniciar session verifique su usuario o contraseña'));
+        done(null,false,{valid});
     }
 }));
 
 
-passport.use('local.signup', new local({
-    usernameField: 'Correo',
-    passwordField: 'contraseña',
-    passReqToCallback:true
-},async (req,username,password,done)=>{
-    // const {datos Usuario} = req.body
-    const newUser ={
-        username,
-        password,
-        id_investigador
-    }
-    newUser.password = await helpers.encryptPassword(password);
-    const result = await pool.query('update usuario set contrasenia = ? where id_investigador = ?',[newUser],id_investigador);
-    newUser.id = result.insertId;
-    return done(null,newUser);
-    }));
+// passport.use('local.signup', new local({
+//     usernameField: 'Correo',
+//     passwordField: 'contraseña',
+//     passReqToCallback:true
+// },async (req,username,password,done)=>{
+//     // const {datos Usuario} = req.body
+//     const newUser ={
+//         username,
+//         password,
+//         id_investigador
+//     }
+
+//     newUser.password = await helpers.encryptPassword(password);
+//     const result = await pool.query('update usuario set contrasenia = ? where id_investigador = ?',[newUser],id_investigador);
+//     newUser.id = result.insertId;
+//     return done(null,newUser);
+
+//     }));
 
 passport.serializeUser((usr,done) => {
-    done(null,us.usr.id);
+    done(null,usr);
 });
 
  passport.deserializeUser(async (usr,done) => {
