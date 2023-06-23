@@ -45,23 +45,27 @@
                     <label for="validationDefault02" class="form-label">ASIGNACIÓN DENTRO DEL <b> COMITÉ TUTORAL:
                         </b>
                         DIRECTOR DE TESIS (<input type="text" name="dt" id="dt" class="yn">) CODIRECTOR DE TESIS (<input
-                            type="text" class="yn" name="ct">) TUTORES (<input name="tuto" type="text" class="yn">)
+                            type="text" class="yn" name="ct" id="ct">) TUTORES (<input id="tuto" name="tuto" type="text" class="yn">)
                     </label>
                 </div>
                 <div class="col-md-10 col-sm-10">
                     <label for="validationDefault04" class="form-label">Nombre del alumno</label>
                     <select class="form-select" id="nombreAlumno" required>
                         <option selected disabled value="">selecciona una opcion...</option>
-                        <option>...</option>
+                        {{#each lal}} 
+                        <option value="{{id_persona}}">{{nombres}} {{primerApellido}} {{segundoApellido}}</option>
+                        {{/each }}
                     </select>
                 </div>
                 <div class="col-md-10">
                     <label for="validationDefault04" class="form-label">Titulo del proyecto</label>
-                    <select class="form-select" id="proyecto" required>
-                        <option selected disabled value="">Selecciona una opcion...</option>
-                        <option>...</option>
-                    </select>
-                </div>
+                   <select class="form-select" id="proyecto" disabled>
+                        <option selected disabled value="">selecciona una opcion...</option>
+                        {{#each tesis}} 
+                        <option value="{{id_persona}}">{{nombre}}</option>
+                        {{/each }}
+                    </select>   
+                     </div>
 
                 <p> <b> I. Trabajo Escrito (70%). </b> Se califica forma, fondo e integración de los primeros
                     capítulos y su
@@ -164,8 +168,21 @@
         </div>
     </div>
   <script>
+    const alumnos = document.getElementById('nombreAlumno');
+    alumnos.addEventListener('change',cambiar);
+    var selec1
     const calf = document.getElementById('cal9');
     calf.addEventListener('change',calcular);
+    const proyecto = document.getElementById('proyecto');
+
+    function cambiar(){
+      for (var i =0; i<proyecto.options.length;i++){ 
+        if(proyecto.options[i].value === alumnos.value){
+          proyecto.selectedIndex =i;
+        }
+            }
+    }
+
     function calcular(){
                   const myInput5 = document.getElementById("cal1");
       const calf1 = myInput5.value;
@@ -194,12 +211,10 @@
       const myInput13 = document.getElementById("cal9");
        const calF = document.getElementById("calFinal");
       const calf9 = myInput13.value;
-      console.log(calf9)
       var num1 = parseFloat(calf1);
       var num2 = parseFloat(calf2);
       var num3 = parseFloat(calf3);
       var num4 = parseFloat(calf4);
-
       var num5 = parseFloat(calf5);
       var num6 = parseFloat(calf6);
       var num7 = parseFloat(calf7);
@@ -215,6 +230,7 @@
       const calfinal = (total1 + total2).toFixed(1);
         calF.value = calfinal;
     }
+    
     function generarPDF() {
       const myInput = document.getElementById("NombreEvaluador");
       const nombre = myInput.value;
@@ -224,11 +240,19 @@
       const asignacion = myInput2.value;
       console.log(asignacion)
 
+      const ct = document.getElementById("ct");
+      const coot = ct.value;
+
+      const tut = document.getElementById("tuto");
+      const tutor=tut.value
+
       const myInput3 = document.getElementById("nombreAlumno");
-      const alumno = myInput3.value;
+      const al = myInput3.options[myInput3.selectedIndex];
+      const alumno = al.textContent;
       console.log(alumno)
       const myInput4 = document.getElementById("proyecto");
-      const proyecto = myInput4.value;
+      const proy = myInput4.options[myInput4.selectedIndex];
+      const proyecto = proy.textContent;
       console.log(proyecto)
       const myInput5 = document.getElementById("cal1");
       const calf1 = myInput5.value;
@@ -387,8 +411,15 @@
                   {
                     text: [
                       { text: 'ASIGNACIÓN DENTRO DEL ', alignment: 'left', fontSize: 11 },
-                      { text: 'COMITÉ TUTORAL: ', alignment: 'left', bold: true, fontSize: 11 },
-                      { text: asignacion, alignment: 'left', fontSize: 11 }
+                      { text: 'COMITÉ TUTORAL: DIRECTOR DE TESIS:(', alignment: 'left', bold: false, fontSize: 11 },
+                      { text: asignacion, alignment: 'left', fontSize: 11 },
+                      { text: ') COODIRECTOR DE TESIS:(', alignment: 'left', bold:false, fontSize: 11 },
+                      { text: coot, alignment: 'left', bold:false, fontSize: 11 },
+                        { text: ') TUTORES :(', alignment: 'left', bold:false, fontSize: 11 },
+                      { text: tutor, alignment: 'left', bold:false, fontSize: 11 },
+                        { text: ')', alignment: 'left', bold:false, fontSize: 11 },
+                      
+                      
                     ],
                     margin: [0, 0, 5, 5]
                   }
@@ -606,6 +637,7 @@
         }
         )
     };
+  
     function obtenerImagenBase64(url) {
       return new Promise(function (resolve, reject) {
         var xhr = new XMLHttpRequest();
@@ -631,4 +663,5 @@
         xhr.send();
       });
     }
+  
   </script>

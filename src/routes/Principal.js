@@ -23,7 +23,10 @@ router.get('/Formatos/1Evaluacion', async (req, res) => {
     res.render('Paginas/Docs/1Evaluacion');
 });
 router.get('/Formatos/2Evaluacion', async (req, res) => {
-    res.render('Paginas/Docs/2Evaluacion');
+    const {id_inv} = req.user;
+    const lal = await pool.query ('SELECT persona.id_persona, persona.nombres, persona.primerApellido, persona.segundoApellido FROM persona WHERE persona.id_persona IN ( SELECT aspirante.id_persona FROM aspirante WHERE id_aspirante IN ( SELECT doctorado.id_doctorado FROM doctorado WHERE doctorado.id_asesor = ? OR doctorado.id_coodirector = ? OR doctorado.id_tutor1 = ? OR doctorado.id_tutor2 = ?))',[id_inv,id_inv,id_inv,id_inv]);      
+const tesis = await pool.query('SELECT doctorado.id_doctorado, protocolo.nombre, aspirante.id_persona FROM doctorado INNER JOIN protocolo ON doctorado.id_protocolo = protocolo.id_protocolo INNER JOIN aspirante ON doctorado.id_doctorado = aspirante.id_aspirante WHERE doctorado.id_asesor = ? OR doctorado.id_coodirector = ? OR doctorado.id_tutor1 = ? OR doctorado.id_tutor2 = ?;',[id_inv,id_inv,id_inv,id_inv]);       
+    res.render('Paginas/Docs/2Evaluacion',{lal,tesis});
 });
 router.get('/Formatos/4Evaluacion', async (req, res) => {
     res.render('Paginas/Docs/4Evaluacion');
