@@ -39,7 +39,7 @@
                     <label for="validationDefault01" class="form-label">Nombre del evaluador </label>
                     <input type="text" name="NombreEvaluador" id="NombreEvaluador" class="form-control"
                         id="validationDefault01"
-                        value="{{user.nombres}} {{user.primerApellido}}{{user.segundoApellido}}" required>
+                        value="{{user.nombres}} {{user.primerApellido}} {{user.segundoApellido}}" required>
                 </div>
                 <div class="col-md-11 col-sm-11">
                     <label for="validationDefault02" class="form-label">ASIGNACIÓN DENTRO DEL <b> COMITÉ TUTORAL:
@@ -167,13 +167,16 @@
             </div>
         </div>
     </div>
+
   <script>
     const alumnos = document.getElementById('nombreAlumno');
     alumnos.addEventListener('change',cambiar);
+    const proyecto = document.getElementById('proyecto');
+
     var selec1
     const calf = document.getElementById('cal9');
     calf.addEventListener('change',calcular);
-    const proyecto = document.getElementById('proyecto');
+
 
     function cambiar(){
       for (var i =0; i<proyecto.options.length;i++){ 

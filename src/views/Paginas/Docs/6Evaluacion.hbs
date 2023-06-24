@@ -31,7 +31,7 @@
                 <p class="center">
                     Formato de evaluación <br>
                     <b>Actividades de investigación: </b>
-                    6do. Semestre
+                    6to. Semestre
                 </p>
                 {{links}}
                 {{nombres}}
@@ -52,14 +52,18 @@
                     <label for="validationDefault04" class="form-label">Nombre del alumno</label>
                     <select class="form-select" id="nombreAlumno" required>
                         <option selected disabled value="">selecciona una opcion...</option>
-                        <option>...</option>
+                                               {{#each lal}} 
+                        <option value="{{id_persona}}">{{nombres}} {{primerApellido}} {{segundoApellido}}</option>
+                        {{/each }}
                     </select>
                 </div>
                 <div class="col-md-10">
                     <label for="validationDefault04" class="form-label">Titulo del proyecto</label>
-                    <select class="form-select" id="proyecto" required>
+                    <select class="form-select" id="proyecto" disabled>
                         <option selected disabled value="">Selecciona una opcion...</option>
-                        <option>...</option>
+                                                {{#each tesis}} 
+                        <option value="{{id_persona}}">{{nombre}}</option>
+                        {{/each }}
                     </select>
                 </div>
 
@@ -176,11 +180,25 @@
         </div>
     </div>
     <script>
+
+            const alumnos = document.getElementById('nombreAlumno');
+    alumnos.addEventListener('change',cambiar);
+    const proyecto = document.getElementById('proyecto');
+
         // Función para generar el PDF
              const myInput18 = document.getElementById("cal13");
             const calf13 = myInput18.value;
 
         myInput18.addEventListener('change', calcular);
+
+
+    function cambiar(){
+      for (var i =0; i<proyecto.options.length;i++){ 
+        if(proyecto.options[i].value === alumnos.value){
+          proyecto.selectedIndex =i;
+        }
+            }
+    }
 
         function calcular() {
             

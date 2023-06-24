@@ -40,7 +40,7 @@
                     <label for="validationDefault01" class="form-label">Nombre del evaluador </label>
                     <input type="text" name="NombreEvaluador" id="NombreEvaluador" class="form-control"
                         id="validationDefault01"
-                        value="{{user.nombres}} {{user.primerApellido}}{{user.segundoApellido}}" required>
+                        value="{{user.nombres}} {{user.primerApellido}} {{user.segundoApellido}}" required>
                 </div>
                 <div class="col-md-11 col-sm-11">
                     <label for="validationDefault02" class="form-label">ASIGNACIÓN DENTRO DEL <b> COMITÉ TUTORAL:
@@ -53,14 +53,18 @@
                     <label for="validationDefault04" class="form-label">Nombre del alumno</label>
                     <select class="form-select" id="nombreAlumno" required>
                         <option selected disabled value="">selecciona una opcion...</option>
-                        <option>...</option>
+                                               {{#each lal}} 
+                        <option value="{{id_persona}}">{{nombres}} {{primerApellido}} {{segundoApellido}}</option>
+                        {{/each }}
                     </select>
                 </div>
                 <div class="col-md-10">
                     <label for="validationDefault04" class="form-label">Titulo del proyecto</label>
-                    <select class="form-select" id="proyecto" required>
+                    <select class="form-select" id="proyecto" disabled>
                         <option selected disabled value="">Selecciona una opcion...</option>
-                        <option>...</option>
+                                                {{#each tesis}} 
+                        <option value="{{id_persona}}">{{nombre}}</option>
+                        {{/each }}
                     </select>
                 </div>
  
@@ -176,8 +180,23 @@ modelos, teorías y/o conceptos pertinentes iniciales</td>
         </div>
     </div>
   <script>
+
+        const alumnos = document.getElementById('nombreAlumno');
+    alumnos.addEventListener('change',cambiar);
+    const proyecto = document.getElementById('proyecto');
+
     const calf = document.getElementById('cal9');
     calf.addEventListener('change',calcular);
+
+    
+    function cambiar(){
+      for (var i =0; i<proyecto.options.length;i++){ 
+        if(proyecto.options[i].value === alumnos.value){
+          proyecto.selectedIndex =i;
+        }
+            }
+    }
+
     function calcular(){
                   const myInput5 = document.getElementById("cal1");
       const calf1 = myInput5.value;

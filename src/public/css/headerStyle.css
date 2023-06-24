@@ -27,6 +27,9 @@
 }
 .collapse{
     margin-left: 5rem;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 
 .logoPrincipal{
