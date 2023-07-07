@@ -4,16 +4,16 @@ const router = express.Router();
 const pool = require('../database');
 
 
-router.post('/Principal', (req, res) => {
+router.post('/Formatos/Principal', (req, res) => {
     res.render('Paginas/Principal',)
 });
 
-router.get('/Principal', (req, res) => {
+router.get('/Formatos/Principal', (req, res) => {
 
     res.render('Paginas/Principal',)
 });
 
-router.get('/Modificaciones/Personas', (req, res) => {
+router.get('/Formatos/Modificaciones/Personas', (req, res) => {
     res.render('Paginas/Altas/Personas')
 });
 router.get('/Formatos/3evaluacion', async (req, res) => {
@@ -52,7 +52,7 @@ router.get('/Formatos/6Evaluacion', async (req, res) => {
     const tesis = await pool.query('SELECT doctorado.id_doctorado, protocolo.nombre, aspirante.id_persona FROM doctorado INNER JOIN protocolo ON doctorado.id_protocolo = protocolo.id_protocolo INNER JOIN aspirante ON doctorado.id_doctorado = aspirante.id_aspirante WHERE doctorado.id_asesor = ? OR doctorado.id_coodirector = ? OR doctorado.id_tutor1 = ? OR doctorado.id_tutor2 = ?;', [id_inv, id_inv, id_inv, id_inv]);
     res.render('Paginas/Docs/6Evaluacion', { lal, tesis });
 });
-router.get('/AcercaDe', (req, res) => {
+router.get('/Formatos/AcercaDe', (req, res) => {
     res.render('Paginas/AcercaDe')
 });
 

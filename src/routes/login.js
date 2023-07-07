@@ -21,14 +21,13 @@ const valid = true;
 
 router.post('/',(req,res,next) =>{
   passport.authenticate('local.signin',{
-      successRedirect: '/Principal',
-      failureRedirect: ('/login/err'),
+      successRedirect: '/Formatos/Principal',
+      failureRedirect: ('/Formatos/login/err'),
       failureFlash: true,
   })(req,res,next)
   });
 
 router.get('/', (req, res) => {
-
     res.render('Paginas/login');
 });
 

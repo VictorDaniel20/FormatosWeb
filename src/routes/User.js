@@ -3,14 +3,14 @@ const router = express.Router();
 const pool = require('../database');
 const helpers = require('../lib/helpers');
 
-router.get('/Ajustes',(req,res)=>{
+router.get('/Formatos/Ajustes',(req,res)=>{
     res.render('Paginas/Ajustes');
 });
-router.get('/ModificarUsuario',(req,res)=>{
+router.get('/Formatos/ModificarUsuario',(req,res)=>{
     res.render('Paginas/cambioContra');
 });
 
-router.post('/ModificarUsuario',async (req,res)=>{
+router.post('/Formatos/ModificarUsuario',async (req,res)=>{
     const data ={usuario,ContraseñaActual,Contraseña,ConfirmarC}=req.body;
     const passA = await pool.query('select contrasenia from usuario where id_investigador = (select id_investigador from investigador where email_institu= ?)',usuario);
     console.log(passA);

@@ -50,18 +50,18 @@ next();
 
 //rutas
 app.use(require('./routes/Principal'));
-app.use('/login',require('./routes/login'));
-app.use('/aut',require('./routes/autenticacion'));
-app.use('/Principal',require('./routes/Principal'));
-app.use('/Modificaciones/Personas',require('./routes/Principal'));
+app.use('/Formatos/login',require('./routes/login'));
+app.use('/Formatos/aut',require('./routes/autenticacion'));
+app.use('/Formatos/Principal',require('./routes/Principal'));
+app.use('/Formatos/Modificaciones/Personas',require('./routes/Principal'));
 app.use('/Formatos/3evaluacion',require('./routes/Principal'));
 app.use('/Formatos/1evaluacion',require('./routes/Principal'));
 app.use('/Formatos/4evaluacion',require('./routes/Principal'));
 app.use('/Formatos/5evaluacion',require('./routes/Principal'));
 app.use('/Formatos/6evaluacion',require('./routes/Principal'));
-app.use('AcercaDe',require('./routes/Principal'));
-app.use('/Modificaciones',require('./routes/Altas')); 
-app.use('/Usuario',require('./routes/User'));
+app.use('/FormatosAcercaDe',require('./routes/Principal'));
+app.use('/Formatos/Modificaciones',require('./routes/Altas')); 
+app.use('/Formatos/Usuario',require('./routes/User'));
 // public
 app.use(express.static(path.join(__dirname,'public')));
 
